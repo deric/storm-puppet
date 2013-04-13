@@ -22,5 +22,13 @@ define storm::service( $start = 'no', $jvm_memory = '768m', $opts = []) {
     group   => 'root',
     mode    => '0644'
   }
+  
+  if $start == 'yes' {
+    service { "storm-${name}":
+      ensure    => "running",
+      hasstatus => true,
+    }
+  }
+
 
 }
