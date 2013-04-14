@@ -29,7 +29,7 @@ define storm::service( $start = 'no', $enable = false, $jvm_memory = '768m', $op
       ensure    => "running",
       hasstatus => true,
       enable    => $enable,
-      subscribe => [File["/etc/storm/storm.yaml"], File["/etc/default/storm"], File["/etc/default/storm-${name}"],
+      subscribe => [File["/etc/storm/storm.yaml"], File["/etc/default/storm"], File["/etc/default/storm-${name}"]],
     }
   }
 
