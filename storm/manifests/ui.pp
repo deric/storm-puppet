@@ -18,6 +18,7 @@ class storm::ui {
   # Install ui /etc/default
   storm::service { 'ui':
     start      => 'yes',
+    enable     => true,
     jvm_memory => $storm::params::ui_mem,
     opts       => $storm::params::ui_jvm,      
   }

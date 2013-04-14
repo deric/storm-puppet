@@ -18,6 +18,7 @@ class storm::drpc {
   # Install drpc /etc/default
   storm::service { 'drpc':
     start      => 'yes',
+    enable     => true,
     jvm_memory => $storm::params::drpc_mem,
     opts       => $storm::params::drpc_jvm,
   }
