@@ -18,7 +18,8 @@ class storm::nimbus {
   # Install nimbus /etc/default
   storm::service { 'nimbus':
     start      => 'yes',
-    jvm_memory => $storm::params::nimbus_mem
+    jvm_memory => $storm::params::nimbus_mem,
+    opts       => $storm::params::nimbus_jvm,
   }
 
 }

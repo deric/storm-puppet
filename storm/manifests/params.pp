@@ -48,15 +48,17 @@ class storm::params {
   $nimbus_task_launch_secs          = hiera('nimbus_task_launch_secs', '120')
   $nimbus_reassign                  = hiera('nimbus_reassign', 'true')
   $nimbus_file_copy_expiration_secs = hiera('nimbus_file_copy_expiration_secs', '600')
+  $nimbus_jvm                       = hiera('nimbus_jvm', ['-Dlog4j.configuration=file:/etc/storm/storm.log.properties', '-Dlogfile.name=nimbus.log'])
 
   #_ STORM UI _#
   $ui_mem       = hiera('ui_mem', '1024m')
   $ui_port      = hiera('ui_port', '8080')
   $ui_childopts = hiera('ui_childopts', '-Xmx768m')
-  $ui_jvm = hiera('ui_jvm', ['-Dlog4j.configuration=file:/etc/storm/storm.log.properties', '-Dlogfile.name=ui.log'])
+  $ui_jvm       = hiera('ui_jvm', ['-Dlog4j.configuration=file:/etc/storm/storm.log.properties', '-Dlogfile.name=ui.log'])
 
   #_ DISTRIBUTED RPC _#
   $drpc_mem                        = hiera('drpc_mem', '1024m')
+  $drpc_jvm                        = hiera('drpc_jvm', ['-Dlog4j.configuration=file:/etc/storm/storm.log.properties', '-Dlogfile.name=drpc.log'])
   $drpc_port                       = hiera('drpc_port', '3772')
   $drpc_servers                    = hiera_array('drpc_servers', [''])
   $drpc_invocations_port           = hiera('drpc_invocations_port', '3773')
@@ -75,6 +77,7 @@ class storm::params {
   $supervisor_monitor_frequency_secs    = hiera('supervisor_monitor_frequency_secs', '3')
   $supervisor_heartbeat_frequency_secs  = hiera('supervisor_heartbeat_frequency_secs', '5')
   $supervisor_enable                    = hiera('supervisor_enable', 'true')
+  $supervisor_jvm                       = hiera('supervisor_jvm', ['-Dlog4j.configuration=file:/etc/storm/storm.log.properties', '-Dlogfile.name=supervisor.log'])
 
   #_ WORKERS _#
   $worker_childopts                = hiera('worker_childopts', '-Xmx768m')
