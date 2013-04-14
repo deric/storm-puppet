@@ -4,7 +4,7 @@
 ENABLE="<%= start %>"
 
 #_ PID FILE _#
-STORM_PID="/var/run/storm-<%= name %>.pid"
+STORM_<%= name.upcase %>_PID="/var/run/storm-<%= name %>.pid"
 
 #_ NIMBUS _#
 STORM_<%= name.upcase %>_JVM_MEMORY="<%= jvm_memory %>"
