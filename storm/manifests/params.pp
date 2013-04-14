@@ -52,6 +52,7 @@ class storm::params {
   $ui_mem       = hiera('ui_mem', '1024m')
   $ui_port      = hiera('ui_port', '8080')
   $ui_childopts = hiera('ui_childopts', '-Xmx768m')
+  $ui_jvm = hiera('ui_jvm', ['-Dlog4j.configuration=file:/etc/storm/storm.log.properties', '-Dlogfile.name=ui.log'])
 
   #_ DISTRIBUTED RPC _#
   $drpc_mem                        = hiera('drpc_mem', '1024m')
