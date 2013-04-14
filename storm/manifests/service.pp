@@ -9,8 +9,9 @@
 # Requires: storm::install
 #
 # Sample Usage: storm::service { 'nimbus':
-#                 start => 'yes',
-#                 jvm_memory => '1024m'
+#                 start      => 'yes',
+#                 jvm_memory => '1024m',
+#                 opts       => ['-Dlog4j.configuration=file:/etc/storm/storm.log.properties', '-Dlogfile.name=nimbus.log']
 #               }
 #
 define storm::service( $start = 'no', $enable = false, $jvm_memory = '768m', $opts = []) {
@@ -28,6 +29,7 @@ define storm::service( $start = 'no', $enable = false, $jvm_memory = '768m', $op
       ensure    => "running",
       hasstatus => true,
       enable    => $enable,
+      subscribe => [File["/etc/storm/storm.yaml"], File["/etc/default/storm"], File["/etc/default/storm-${name}"],
     }
   }
 
