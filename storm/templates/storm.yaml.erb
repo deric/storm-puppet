@@ -40,6 +40,10 @@ ui.childopts: "<%= scope.lookupvar('storm::params::ui_childopts') %>"
 drpc.port: <%= scope.lookupvar('storm::params::drpc_port') %>
 drpc.invocations.port: <%= scope.lookupvar('storm::params::drpc_invocations_port') %>
 drpc.request.timeout.secs: <%= scope.lookupvar('storm::params::drpc_request_timeout_secs') %>
+drpc.servers:
+<% scope.lookupvar('storm::params::drpc_servers').each do |drpc| -%>
+    - "<%= drpc %>"
+<% end-%>
 
 transactional.zookeeper.root: "<%= scope.lookupvar('storm::params::transactional_zookeeper_root') %>"
 transactional.zookeeper.servers: <%= scope.lookupvar('storm::params::transactional_zookeeper_servers') %>
