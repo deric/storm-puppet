@@ -15,6 +15,8 @@ class storm::ui {
   include storm::config
   include storm::params
 
+ Class['storm::nimbus'] -> Class['storm::supervisor']
+
   # Install ui /etc/default
   storm::service { 'ui':
     start      => 'yes',
