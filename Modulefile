@@ -8,5 +8,4 @@ description 'Storm is a distributed real-time computation system. See http://sto
 project_page 'https://github.com/deric/storm-puppet'
 
 ## Add dependencies, if any:
-#dependency 'example42/puppi', '>=2.0.0'
 
